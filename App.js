@@ -1,21 +1,29 @@
-import { StatusBar } from 'expo-status-bar'
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import Contents from './src/navigation/Contents'
+import ItemDetail from './src/navigation/ItemDetail'
 
-export default function App() {
+const Stack = createNativeStackNavigator()
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Movies App"
+          component={Contents}
+          options={{
+            headerStyle: { backgroundColor: '#2c3e50' },
+            headerTitleStyle: {
+              color: 'white',
+            },
+          }}
+        />
+        <Stack.Screen name="ItemDetail" component={ItemDetail} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
+export default App
