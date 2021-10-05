@@ -20,7 +20,33 @@ const App = () => {
             },
           }}
         />
-        <Stack.Screen name="ItemDetail" component={ItemDetail} />
+        <Stack.Screen
+          name="ItemDetail"
+          component={ItemDetail}
+          options={({ route }) =>
+            route.params.name
+              ? {
+                  title: route.params.name,
+                  headerStyle: {
+                    backgroundColor: '#fff',
+                  },
+                  headerTitleStyle: {
+                    color: 'brack',
+                  },
+                  headerBackTitle: 'Back to List',
+                }
+              : {
+                  title: route.params.title,
+                  headerStyle: {
+                    backgroundColor: '#fff',
+                  },
+                  headerTitleStyle: {
+                    color: 'brack',
+                  },
+                  headerBackTitle: 'Back to List',
+                }
+          }
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )
