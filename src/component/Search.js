@@ -42,19 +42,24 @@ const Search = (props) => {
   }
 
   return (
-    <SafeAreaView>
-      <View>
-        <Text>
-          Search Movie/TV Show Name<Text>*</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.searchContainer}>
+        <Text style={styles.text}>
+          Search Movie/TV Show Name<Text style={styles.validation}>*</Text>
         </Text>
         <Form onChangeText={onChangeSearch} value={searchQuery} validation={validation} />
-        <Text>
-          Choose Search Type<Text>*</Text>
+        <Text style={styles.text}>
+          Choose Search Type<Text style={styles.validation}>*</Text>
         </Text>
-        <ContentsPicker items={items} onValueChange={onValueChange} validation={validation} />
-        {validation && <Text>Movie / TV show name is required</Text>}
-        <SearchButton onPress={fetchData} validation={checkValidation} />
+        <View style={styles.searchRow}>
+          <View style={styles.picker}>
+            <ContentsPicker items={items} onValueChange={onValueChange} validation={validation} />
+          </View>
+          <SearchButton styles={styles.button} onPress={fetchData} validation={checkValidation} />
+        </View>
+        {validation && <Text style={styles.validation}>Movie / TV show name is required</Text>}
       </View>
+
       <FlatList
         data={contentsLists}
         renderItem={({ item }) => (
@@ -74,5 +79,33 @@ const Search = (props) => {
     </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    width: '100%',
+    alignItems: 'center',
+  },
+  text: {
+    margin: 5,
+  },
+  searchContainer: {
+    marginVertical: 20,
+    width: '80%',
+  },
+  searchRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  picker: {
+    width: '60%',
+    margin: 5,
+  },
+
+  validation: {
+    color: 'red',
+    margin: 5,
+  },
+})
 
 export default Search

@@ -10,7 +10,9 @@ const SearchButton = (props) => (
       props.validation()
     }}
     color={'#00B6D4'}
-    labelStyle={{ color: 'white', fontSize: 16 }}
+    height={'80%'}
+    width={'40%'}
+    labelStyle={{ color: 'white', fontSize: 14 }}
   >
     Search
   </Button>

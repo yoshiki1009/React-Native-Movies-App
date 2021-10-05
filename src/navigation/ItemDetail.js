@@ -25,20 +25,16 @@ const ItemDetail = (props) => {
   // console.log(movieDetail)
 
   return (
-    <TouchableOpacity>
-      <View>
-        <Image
-          source={{ uri: imageUrl + movieDetail.poster_path }}
-          style={{
-            width: 200,
-            height: 200,
-          }}
-        />
+    <TouchableOpacity style={styles.detailContainer}>
+      <View style={styles.item}>
+        {movieDetail.title && <Text style={styles.title}>{movieDetail.title}</Text>}
+        {movieDetail.name && <Text style={styles.title}>{movieDetail.name}</Text>}
+        <Image source={{ uri: imageUrl + movieDetail.poster_path }} style={styles.image} />
       </View>
-      <View>
+      <View style={styles.item}>
         <Text>{movieDetail.overview}</Text>
       </View>
-      <View>
+      <View style={[styles.description, styles.item]}>
         <Text>Popularity: {movieDetail.popularity} |</Text>
         <Text> Release Date: {movieDetail.release_date}</Text>
       </View>
@@ -47,3 +43,32 @@ const ItemDetail = (props) => {
 }
 
 export default ItemDetail
+
+const styles = StyleSheet.create({
+  detailContainer: {
+    width: '100%',
+    flexDirection: 'column',
+    paddingVertical: 5,
+    marginTop: 10,
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 18,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  description: {
+    flexDirection: 'row',
+    marginTop: 10,
+  },
+  item: {
+    alignSelf: 'center',
+    width: '80%',
+    marginBottom: 10,
+  },
+  image: {
+    width: 200,
+    height: 200,
+    alignSelf: 'center',
+  },
+})

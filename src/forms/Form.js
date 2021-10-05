@@ -13,8 +13,19 @@ const Form = (props) => {
       placeholder="i.e. James Bond, CSI"
       onChangeText={(e) => props.onChangeText(e)}
       value={props.searchQuery}
+      style={[props.validation && styles.validationBorder, styles.search]}
     />
   )
 }
+
+const styles = StyleSheet.create({
+  validationBorder: {
+    borderWidth: 2,
+    borderColor: 'red',
+  },
+  search: {
+    height: 30,
+  },
+})
 
 export default Form

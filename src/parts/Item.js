@@ -35,7 +35,7 @@ export default Item
 
 const styles = StyleSheet.create({
   listContainer: {
-    width: '100%',
+    width: '90%',
     flexDirection: 'row',
     paddingVertical: 5,
     paddingHorizontal: 5,
@@ -52,13 +52,13 @@ const styles = StyleSheet.create({
   },
 
   description: {
-    width: '70%',
+    width: '75%',
   },
   title: {
     fontWeight: 'bold',
   },
   buttonContainer: {
-    width: '70%',
+    width: '75%',
     backgroundColor: '#00B6D4',
     margin: 3,
   },

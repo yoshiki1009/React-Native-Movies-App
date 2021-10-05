@@ -49,6 +49,7 @@ const ContentsContainer = (props) => {
             fetchData(value)
           }}
           items={items}
+          style={customPickerStyles}
         />
       </View>
 
@@ -73,3 +74,30 @@ const ContentsContainer = (props) => {
 }
 
 export default ContentsContainer
+
+const customPickerStyles = StyleSheet.create({
+  inputIOS: {
+    fontSize: 18,
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    alignSelf: 'center',
+    margin: 10,
+    width: '60%',
+    borderWidth: 0.5,
+    borderColor: '#222f3e',
+    borderRadius: 6,
+    color: '#222f3e',
+  },
+  inputAndroid: {
+    fontSize: 18,
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+    alignSelf: 'center',
+    margin: 10,
+    width: '60%',
+    borderWidth: 0.5,
+    borderColor: '#222f3e',
+    borderRadius: 6,
+    color: '#222f3e',
+  },
+})
