@@ -11,6 +11,11 @@ const Search = (props) => {
   const [category, setCategory] = useState('movie')
   const [contentsLists, setContentsLists] = useState([])
   const [validation, setValidation] = useState(false)
+  // if (contentsLists == '') {
+  //   console.log('true')
+  // } else {
+  //   console.log('false')
+  // }
 
   const items = [
     { label: 'movie', value: 'movie' },
@@ -59,6 +64,7 @@ const Search = (props) => {
         </View>
         {validation && <Text style={styles.validation}>Movie / TV show name is required</Text>}
       </View>
+      {contentsLists == '' && <Text style={styles.default}>Please initiate a search</Text>}
 
       <FlatList
         data={contentsLists}
@@ -87,6 +93,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   text: {
+    color: '#444244',
     margin: 5,
   },
   searchContainer: {
@@ -105,6 +112,12 @@ const styles = StyleSheet.create({
   validation: {
     color: 'red',
     margin: 5,
+  },
+  default: {
+    color: '#444244',
+    marginTop: 30,
+    fontSize: 25,
+    fontWeight: 'bold',
   },
 })
 

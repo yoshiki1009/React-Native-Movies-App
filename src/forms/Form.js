@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   },
   search: {
     height: 30,
+    backgroundColor: 'rgba(171, 159, 166, 0.17)',
   },
 })
 
